@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AQI Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌍 Air Quality Prediction Result</h1>
+        </header>
+        
+        <div class="result-container">
+            <div class="aqi-display" style="background: linear-gradient(135deg, {{ color }}, {{ color }}dd);">
+                <div class="aqi-value">{{ aqi }}</div>
+                <div class="aqi-label">AQI</div>
+            </div>
+            
+            <div class="result-details">
+                <h2 class="category-title" style="color: {{ color }};">{{ category }}</h2>
+                <p class="description">{{ description }}</p>
+                
+                <div class="recommendation-box">
+                    <h3>💡 Health Recommendations</h3>
+                    <p>{{ recommendation }}</p>
+                </div>
+                
+                <div class="aqi-scale-reference">
+                    <h3>📊 AQI Scale Reference</h3>
+                    <div class="scale-items">
+                        <div class="scale-item">
+                            <span class="scale-bar" style="background: #00e400;"></span>
+                            <div class="scale-info">
+                                <strong>Good (0-50)</strong>
+                                <span>Air quality is satisfactory</span>
+                            </div>
+                        </div>
+                        <div class="scale-item">
+                            <span class="scale-bar" style="background: #ffff00;"></span>
+                            <div class="scale-info">
+                                <strong>Moderate (51-100)</strong>
+                                <span>Acceptable for most people</span>
+                            </div>
+                        </div>
+                        <div class="scale-item">
+                            <span class="scale-bar" style="background: #ff7e00;"></span>
+                            <div class="scale-info">
+                                <strong>Unhealthy for Sensitive (101-150)</strong>
+                                <span>Sensitive groups should be cautious</span>
+                            </div>
+                        </div>
+                        <div class="scale-item">
+                            <span class="scale-bar" style="background: #ff0000;"></span>
+                            <div class="scale-info">
+                                <strong>Unhealthy (151-200)</strong>
+                                <span>Everyone may experience health effects</span>
+                            </div>
+                        </div>
+                        <div class="scale-item">
+                            <span class="scale-bar" style="background: #8f3f97;"></span>
+                            <div class="scale-info">
+                                <strong>Very Unhealthy (201-300)</strong>
+                                <span>Health alert for all</span>
+                            </div>
+                        </div>
+                        <div class="scale-item">
+                            <span class="scale-bar" style="background: #7e0023;"></span>
+                            <div class="scale-info">
+                                <strong>Hazardous (300+)</strong>
+                                <span>Emergency conditions</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="action-buttons">
+            <a href="/" class="btn-back">⬅ New Prediction</a>
+            <button onclick="window.print()" class="btn-print">🖨️ Print Report</button>
+        </div>
+        
+        <footer>
+            <p>ML Model: Random Forest | Accuracy: 99.82% R² | MAE: 1.20</p>
+            <p><a href="https://github.com/yourusername/air-quality-prediction" target="_blank">View on GitHub</a></p>
+        </footer>
+    </div>
+</body>
+</html>
